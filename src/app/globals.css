@@ -22,3 +22,9 @@ body {
   color: var(--foreground);
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
+iframe#nl-badge-frame {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
