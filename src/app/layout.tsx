@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
+import { Fira_Sans } from "next/font/google";
 import "./globals.css";
+
+const firaSans = Fira_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-fira-sans",
+});
 
 export const metadata: Metadata = {
   title: "winslow.aero",
@@ -20,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en">
+    <html lang="en" className={firaSans.variable}>
       <body>{children}</body>
     </html>
   );
