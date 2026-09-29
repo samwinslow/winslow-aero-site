@@ -11,8 +11,8 @@ export default function Home() {
         unoptimized
         className="mb-6"
       />
-      <h1 className="text-5xl font-medium tracking-tight">winslow.aero</h1>
-      <h2 className="text-xl font-semibold tracking-tight">turning and burning. come back soon!</h2>
+      <h1 className="text-5xl font-medium">winslow.aero</h1>
+      <h2 className="text-xl font-semibold">turning and burning. come back soon!</h2>
     </main>
   );
 }
