@@ -5,7 +5,7 @@ export default function About() {
     <main className="mx-auto flex max-w-2xl flex-col gap-6 px-6 py-16">
       <h1 className="text-3xl font-semibold">About</h1>
       <p className="text-lg">
-        I&apos;m Sam Winslow, a software engineer and commercial pilot based
+        I&apos;m Sam Winslow, a software engineer and pilot based
         in the San Francisco Bay Area. I take an uncompromising approach to
         safety and reliability, and my experience at early-stage startups has
         made me flexible and pragmatic.
@@ -29,10 +29,11 @@ export default function About() {
       </p>
       <ul className="list-disc pl-5 text-lg">
         <li>Aircraft ferrying</li>
-        <li>Flight school operations assistance</li>
-        <li>Flying club and partnership operations support</li>
-        <li>Part-time software development</li>
-        <li>Startup advisory roles</li>
+        <li>Ground training</li>
+        <li>Flight school or flying club operations assistance</li>
+        <li>Partnership or aircraft management</li>
+        <li>Web design and software development</li>
+        <li>Startup advisement</li>
       </ul>
     </main>
   );
