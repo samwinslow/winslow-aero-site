@@ -24,7 +24,7 @@ export default function Contact() {
       <Script
         id="tally-js"
         src="https://tally.so/widgets/embed.js"
-        onLoad={() => {
+        onReady={() => {
           window.Tally?.loadEmbeds();
         }}
       />

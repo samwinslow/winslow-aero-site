@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fira_Sans } from "next/font/google";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import "./globals.css";
 
 const firaSans = Fira_Sans({
@@ -29,9 +30,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={firaSans.variable}>
-      <body>
+      <body className="flex min-h-screen flex-col">
         <Header />
-        {children}
+        <div className="flex-1">{children}</div>
+        <Footer />
       </body>
     </html>
   );
