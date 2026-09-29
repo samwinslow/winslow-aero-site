@@ -15,7 +15,7 @@ export default function About() {
       </p>
 
       <ul className="list-disc pl-5 text-lg">
-        {/* <li>Advanced, Instrument Ground Instructor (AGI, IGI)</li> */}
+        <li>Advanced, Instrument Ground Instructor (AGI, IGI)</li>
         <li>Commercial Pilot (ASEL, AMEL)</li>
         <li>Instrument Rating</li>
         <li>High Performance Endorsement</li>
