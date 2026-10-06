@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import ContactButton from "./components/ContactButton";
 
 export default function Home() {
   return (
@@ -12,12 +12,7 @@ export default function Home() {
         <div className="relative z-10 flex flex-col items-center gap-2 px-6 text-white">
           <h1 className="text-5xl font-medium tracking-tight">winslow<span className="opacity-75">.aero</span></h1>
           <h2 className="text-xl font-semibold tracking-tight">Flying and Software Services in the SF Bay Area</h2>
-          <Link
-            href="/contact"
-            className="mx-auto rounded-md bg-brand-blue px-5 py-2.5 text-sm font-medium text-white hover:bg-brand-blue/80"
-          >
-            Get in touch
-          </Link>
+          <ContactButton />
         </div>
       </section>
 
@@ -36,7 +31,7 @@ export default function Home() {
             I am a software engineer turned pilot based in the San Francisco Bay Area. Not content to be a passenger in my own life, I&rsquo;ve built and scaled several early-stage startup companies, and began pursuing flight training in 2022.
           </p>
           <p className="text-black/70">
-            I now hold Commercial Pilot (single and multiengine land), and Ground Instructor certificates. Aviation was a first love for me, and I hope to share that feeling with you through helpful resources.
+            I hold Commercial Pilot (single and multiengine land), and Ground Instructor certificates. Aviation was a first love for me, and I hope to inform and inspire you too!
           </p>
           <p className="text-black/70">
             &mdash; Sam Winslow
@@ -72,6 +67,15 @@ export default function Home() {
             />
           </div>
         </div>
+      </section>
+
+      <section className="mx-auto flex max-w-2xl flex-col items-center gap-4 px-6 py-16 text-center">
+        <h2 className="text-3xl font-semibold">What would you like to see here?</h2>
+        <p className="text-black/70">
+          This site is a work in progress. If you have any suggestions or
+          advice, let me know!
+        </p>
+        <ContactButton>Contact me</ContactButton>
       </section>
     </main>
   );

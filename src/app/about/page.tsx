@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ContactButton from "../components/ContactButton";
 
 export default function About() {
   return (
@@ -35,6 +36,7 @@ export default function About() {
         <li>Web design and software development</li>
         <li>Startup advisement</li>
       </ul>
+      <ContactButton className="mt-2 self-start" />
     </main>
   );
 }
