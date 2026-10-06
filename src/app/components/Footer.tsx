@@ -4,9 +4,8 @@ export default function Footer() {
       <div className="mx-auto flex max-w-2xl flex-col gap-2">
         <p>&copy; {new Date().getFullYear()} Sam Winslow</p>
         <p>
-          Notice: I am unable to accommodate requests to fly passengers or
-          cargo for hire, and do not act as an &ldquo;air carrier&rdquo; or
-          furnish charter services as defined by DOT and FAA regulations.
+          Notice: I do not act as an &ldquo;air carrier&rdquo; or
+          offer/furnish charter services as defined by FAA regulations.
         </p>
       </div>
     </footer>

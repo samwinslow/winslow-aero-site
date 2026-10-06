@@ -11,7 +11,7 @@ const firaSans = Fira_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "winslow.aero",
+  title: "winslow.aero | Flying & Software Services, SF Bay Area",
   icons: {
     icon: [
       { url: "/stamp/stamp-24.png", sizes: "24x24", type: "image/png" },
