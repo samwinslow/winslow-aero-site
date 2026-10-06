@@ -9,8 +9,8 @@ export default function Home() {
       >
         <div className="absolute inset-0 bg-black/15" />
         <div className="relative z-10 flex flex-col items-center gap-2 px-6 text-white">
-          <h1 className="text-5xl font-medium tracking-tight">Sam Winslow</h1>
-          <h2 className="text-xl font-semibold tracking-tight">Ground Instruction, Flying and Software Services in the Bay Area</h2>
+          <h1 className="text-5xl font-medium tracking-tight">winslow<span className="opacity-75">.aero</span></h1>
+          <h2 className="text-xl font-semibold tracking-tight">Flying and Software Services in the SF Bay Area</h2>
           <Link
           href="/contact"
           className="mx-auto rounded-md bg-brand-blue px-5 py-2.5 text-sm font-medium text-white hover:bg-brand-blue/80"
