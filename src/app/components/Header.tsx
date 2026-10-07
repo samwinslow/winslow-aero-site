@@ -6,6 +6,7 @@ import Link from "next/link";
 import LinkedInIcon from "./icons/LinkedInIcon";
 import YouTubeIcon from "./icons/YouTubeIcon";
 import MenuIcon from "./icons/MenuIcon";
+import posthog from "posthog-js";
 
 const links = [
   { href: "/", label: "Home" },
@@ -17,17 +18,23 @@ const socials = [
   {
     href: "https://www.youtube.com/@s.winslow",
     label: "YouTube",
+    network: "youtube",
     icon: YouTubeIcon,
   },
   {
     href: "https://linkedin.com/in/sambwinslow/",
     label: "LinkedIn",
+    network: "linkedin",
     icon: LinkedInIcon,
   },
-];
+] as const;
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const captureSocialProfileOpen = (socialNetwork: "youtube" | "linkedin") => {
+    posthog.capture("social_profile_opened", { social_network: socialNetwork });
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-black/10 bg-[var(--background)]/80 backdrop-blur">
@@ -56,13 +63,14 @@ export default function Header() {
         </nav>
 
         <div className="col-start-3 hidden items-center justify-end gap-3 sm:flex">
-          {socials.map(({ href, label, icon: Icon }) => (
+          {socials.map(({ href, label, network, icon: Icon }) => (
             <a
               key={href}
               href={href}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
+              onClick={() => captureSocialProfileOpen(network)}
               className="rounded-md p-1.5 hover:bg-black/[0.06]"
             >
               <Icon className="h-5 w-5" />
@@ -100,13 +108,14 @@ export default function Header() {
             ))}
           </nav>
           <div className="mt-3 flex items-center gap-3 px-3">
-            {socials.map(({ href, label, icon: Icon }) => (
+            {socials.map(({ href, label, network, icon: Icon }) => (
               <a
                 key={href}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
+                onClick={() => captureSocialProfileOpen(network)}
                 className="rounded-md p-1.5 hover:bg-black/[0.06]"
               >
                 <Icon className="h-5 w-5" />
