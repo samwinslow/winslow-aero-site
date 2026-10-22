@@ -13,8 +13,10 @@ const firaSans = Fira_Sans({
 const siteDescription =
   "Sam Winslow is a software engineer turned commercial pilot offering ground instruction, aircraft ferrying, and software development services in the San Francisco Bay Area.";
 
+const siteUrl = process.env.DEPLOY_PRIME_URL ?? "https://winslow.aero";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://winslow.aero"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "winslow.aero | Flying & Software Services, SF Bay Area",
     template: "%s | winslow.aero",
