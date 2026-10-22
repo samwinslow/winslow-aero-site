@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import ContactButton from "../components/ContactButton";
 
@@ -23,6 +24,39 @@ export default function About() {
   return (
     <main className="mx-auto flex max-w-2xl flex-col gap-6 px-6 py-16">
       <h1 className="text-3xl font-semibold">About</h1>
+
+      <div className="flex flex-col gap-2">
+        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg">
+          <Image
+            src="/IMG_2255.jpeg"
+            alt="Sam Winslow"
+            fill
+            unoptimized
+            className="object-cover"
+          />
+        </div>
+        <div className="grid grid-cols-2 gap-2">
+          <div className="relative aspect-[3/4] w-full overflow-hidden rounded-lg">
+            <Image
+              src="/IMG_5726.jpeg"
+              alt="Sam Winslow"
+              fill
+              unoptimized
+              className="object-cover"
+            />
+          </div>
+          <div className="relative aspect-[3/4] w-full overflow-hidden rounded-lg">
+            <Image
+              src="/IMG_5736.jpeg"
+              alt="Sam Winslow"
+              fill
+              unoptimized
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </div>
+
       <p className="text-lg">
         I&apos;m Sam Winslow, a software engineer and pilot based
         in the San Francisco Bay Area. I take an uncompromising approach to
