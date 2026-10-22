@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <main>
       <section
-        className="relative flex h-[50vh] min-h-[320px] items-center justify-center overflow-hidden bg-fixed bg-cover bg-center text-center"
+        className="relative flex h-[50vh] min-h-[320px] items-center justify-center overflow-hidden bg-scroll bg-cover bg-center text-center sm:bg-fixed"
         style={{ backgroundImage: "url('/IMG_0303.jpeg')" }}
       >
         <div className="absolute inset-0 bg-[hsla(214,81%,20%,0.5)]" />
