@@ -12,10 +12,10 @@ export default function Home() {
   return (
     <main>
       <section
-        className="relative flex h-[50vh] min-h-[320px] items-center justify-center overflow-hidden bg-fixed bg-cover bg-center text-center"
-        style={{ backgroundImage: "url('/IMG_9163-edit.jpeg')" }}
+        className="relative flex h-[100vw] min-h-[320px] items-center justify-center overflow-hidden bg-scroll bg-cover bg-center text-center sm:h-[50vh] sm:bg-fixed"
+        style={{ backgroundImage: "url('/IMG_0303.jpeg')" }}
       >
-        <div className="absolute inset-0 bg-black/15" />
+        <div className="absolute inset-0 bg-[hsla(214,81%,20%,0.5)]" />
         <div className="relative z-10 flex flex-col items-center gap-2 px-6 text-white">
           <h1 className="text-5xl font-medium tracking-tight">winslow<span className="opacity-75">.aero</span></h1>
           <h2 className="text-xl font-semibold tracking-tight">Flying and Software Services in the SF Bay Area</h2>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import ContactButton from "../components/ContactButton";
 
@@ -23,36 +24,66 @@ export default function About() {
   return (
     <main className="mx-auto flex max-w-2xl flex-col gap-6 px-6 py-16">
       <h1 className="text-3xl font-semibold">About</h1>
+
       <p className="text-lg">
-        I&apos;m Sam Winslow, a software engineer and pilot based
-        in the San Francisco Bay Area. I take an uncompromising approach to
-        safety and reliability, and my experience at early-stage startups has
-        made me flexible and pragmatic.
+        I&apos;m Sam Winslow, a pilot based in the San Francisco Bay Area.
+        Flying was a first love, but not something I had seriously considered as a career
+        until I began taking flying lessons in 2022. I&apos;m so glad I did!
       </p>
+      <p className="text-lg">
+        I have been lucky to work at several dynamic, fast-growing companies
+        from pre-seed to Series B, first as a designer and marketer,
+        then as a software engineer, and now mostly as a consultant/advisor.
+      </p>
+      <p className="text-lg">
+        Fast-forward to 2026: Aviation is now my primary focus.
+        I am looking for opportunities to grow and give back
+        while pursuing my CFI certificate.
+        I am also proudly a volunteer pilot for Angel Flight West.
+      </p>
+
+      <div className="flex flex-col gap-2">
+        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg">
+          <Image
+            src="/IMG_2255.jpeg"
+            alt="Sam Winslow"
+            fill
+            unoptimized
+            className="object-cover"
+          />
+        </div>
+        <div className="grid grid-cols-2 gap-2">
+          <div className="relative aspect-[3/4] w-full overflow-hidden rounded-lg">
+            <Image
+              src="/IMG_5726.jpeg"
+              alt="Sam Winslow"
+              fill
+              unoptimized
+              className="object-cover"
+            />
+          </div>
+          <div className="relative aspect-[3/4] w-full overflow-hidden rounded-lg">
+            <Image
+              src="/IMG_5736.jpeg"
+              alt="Sam Winslow"
+              fill
+              unoptimized
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </div>
+
       <p className="text-lg">
         I hold the following certificates, ratings, and endorsements:
       </p>
 
       <ul className="list-disc pl-5 text-lg">
-        <li>Advanced, Instrument Ground Instructor (AGI, IGI)</li>
         <li>Commercial Pilot (ASEL, AMEL)</li>
+        <li>Advanced, Instrument Ground Instructor (AGI, IGI)</li>
         <li>Instrument Rating</li>
         <li>High Performance Endorsement</li>
         <li>Complex Endorsement</li>
-      </ul>
-      <p className="text-lg">
-        <Link href="/contact" className="font-medium underline underline-offset-4">
-          Contact me
-        </Link>{" "}
-        for:
-      </p>
-      <ul className="list-disc pl-5 text-lg">
-        <li>Aircraft ferrying</li>
-        <li>Ground training</li>
-        <li>Flight school or flying club operations assistance</li>
-        <li>Partnership or aircraft management</li>
-        <li>Web design and software development</li>
-        <li>Startup advisement</li>
       </ul>
       <ContactButton className="mt-2 self-start" />
     </main>
