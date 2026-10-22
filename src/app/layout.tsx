@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     siteName: "winslow.aero",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image-wtext.jpg",
         width: 1200,
         height: 630,
       },
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "winslow.aero | Flying & Software Services, SF Bay Area",
     description: siteDescription,
-    images: ["/og-image.jpg"],
+    images: ["/og-image-wtext.jpg"],
   },
   icons: {
     icon: [
