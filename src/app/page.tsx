@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import ContactButton from "./components/ContactButton";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function Home() {
   return (

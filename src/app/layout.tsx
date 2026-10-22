@@ -10,8 +10,37 @@ const firaSans = Fira_Sans({
   variable: "--font-fira-sans",
 });
 
+const siteDescription =
+  "Sam Winslow is a software engineer turned commercial pilot offering ground instruction, aircraft ferrying, and software development services in the San Francisco Bay Area.";
+
 export const metadata: Metadata = {
-  title: "winslow.aero | Flying & Software Services, SF Bay Area",
+  metadataBase: new URL("https://winslow.aero"),
+  title: {
+    default: "winslow.aero | Flying & Software Services, SF Bay Area",
+    template: "%s | winslow.aero",
+  },
+  description: siteDescription,
+  openGraph: {
+    title: "winslow.aero | Flying & Software Services, SF Bay Area",
+    description: siteDescription,
+    url: "/",
+    siteName: "winslow.aero",
+    images: [
+      {
+        url: "/IMG_9163-edit.jpeg",
+        width: 2160,
+        height: 1620,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "winslow.aero | Flying & Software Services, SF Bay Area",
+    description: siteDescription,
+    images: ["/IMG_9163-edit.jpeg"],
+  },
   icons: {
     icon: [
       { url: "/stamp/stamp-24.png", sizes: "24x24", type: "image/png" },
