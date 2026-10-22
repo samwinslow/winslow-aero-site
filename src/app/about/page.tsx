@@ -1,5 +1,23 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import ContactButton from "../components/ContactButton";
+
+const description =
+  "Commercial pilot and software engineer Sam Winslow's certificates, ratings, and the flying and software services he offers in the SF Bay Area.";
+
+export const metadata: Metadata = {
+  title: "About",
+  description,
+  openGraph: {
+    title: "About | winslow.aero",
+    description,
+    url: "/about",
+  },
+  twitter: {
+    title: "About | winslow.aero",
+    description,
+  },
+};
 
 export default function About() {
   return (
