@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import ContactButton from "../../components/ContactButton";
 import { formatDate, getArticle, getArticleSlugs } from "../articles";
 import { blogMetadata } from "../metadata";
 
@@ -40,7 +41,7 @@ export default async function ArticlePage({
       <time dateTime={article.date} className="mt-2 block text-foreground/70">
         {formatDate(article.date)}
       </time>
-      <div className="mt-8 flex flex-col gap-5 text-lg break-words">
+      <div className="post-body mt-8 flex flex-col gap-5 text-lg break-words">
         <Body />
       </div>
       <Link
@@ -49,6 +50,15 @@ export default async function ArticlePage({
       >
         All Posts
       </Link>
+
+      <section className="mt-16 flex flex-col items-start gap-4">
+        <h2 className="text-2xl font-semibold">Comments</h2>
+        <p className="text-foreground/70">
+          Have a question, a correction, or a story of your own? I&apos;d love
+          to hear it.
+        </p>
+        <ContactButton className="mx-0!">Contact me</ContactButton>
+      </section>
     </main>
   );
 }

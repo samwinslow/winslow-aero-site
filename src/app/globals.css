@@ -27,6 +27,16 @@ body {
   font-family: var(--font-fira-sans), "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+/* End mark on the last paragraph of a post. */
+.post-body > p:last-of-type::after {
+  content: "";
+  display: inline-block;
+  width: 0.6em;
+  height: 0.6em;
+  margin-left: 0.4em;
+  background: currentColor;
+}
+
 iframe#nl-badge-frame {
   display: none !important;
   opacity: 0 !important;
