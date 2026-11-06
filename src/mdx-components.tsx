@@ -11,7 +11,7 @@ const components: MDXComponents = {
   h5: (props) => <h5 {...props} className={`${heading} text-[1.25rem]`} />,
   h6: (props) => <h6 {...props} className={`${heading} text-[1.1875rem]`} />,
   a: (props) => (
-    <a {...props} className="text-brand-blue underline dark:text-brand-aqua" />
+    <a {...props} className="text-brand-blue hover:underline dark:text-brand-aqua" />
   ),
   ul: (props) => <ul {...props} className="list-disc pl-5" />,
   ol: (props) => <ol {...props} className="list-decimal pl-5" />,

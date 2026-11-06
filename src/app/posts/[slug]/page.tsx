@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { formatDate, getArticle, getArticleSlugs } from "../articles";
 import { blogMetadata } from "../metadata";
@@ -42,6 +43,12 @@ export default async function ArticlePage({
       <div className="mt-8 flex flex-col gap-5 text-lg break-words">
         <Body />
       </div>
+      <Link
+        href="/posts"
+        className="mt-12 inline-block text-lg text-brand-blue hover:underline dark:text-brand-aqua"
+      >
+        All Posts
+      </Link>
     </main>
   );
 }
