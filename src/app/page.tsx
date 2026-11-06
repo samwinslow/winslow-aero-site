@@ -3,9 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import ContactButton from "./components/ContactButton";
 import { getLatestArticles } from "./posts/articles";
-import PostCard from "./posts/PostCard";
+import PostCard, { PostCardSkeleton } from "./posts/PostCard";
 
-const SHOW_POST_LIST = false;
+const SHOW_POST_LIST = true;
+const LATEST_POST_COUNT = 3;
 
 export const metadata: Metadata = {
   alternates: {
@@ -14,7 +15,10 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const latestArticles = SHOW_POST_LIST ? getLatestArticles(3) : [];
+  const latestArticles = SHOW_POST_LIST
+    ? getLatestArticles(LATEST_POST_COUNT)
+    : [];
+  const skeletonCount = LATEST_POST_COUNT - latestArticles.length;
 
   return (
     <main>
@@ -100,6 +104,11 @@ export default function Home() {
             {latestArticles.map((article) => (
               <li key={article.slug}>
                 <PostCard article={article} heading="h3" layout="stacked" />
+              </li>
+            ))}
+            {Array.from({ length: skeletonCount }, (_, index) => (
+              <li key={index} className="hidden md:block">
+                <PostCardSkeleton />
               </li>
             ))}
           </ul>
