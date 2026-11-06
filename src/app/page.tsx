@@ -5,7 +5,7 @@ import ContactButton from "./components/ContactButton";
 import { getLatestArticles } from "./posts/articles";
 import PostCard from "./posts/PostCard";
 
-const SHOW_POST_LIST = false;
+const SHOW_POST_LIST = true;
 
 export const metadata: Metadata = {
   alternates: {

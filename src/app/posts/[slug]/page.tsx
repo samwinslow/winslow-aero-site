@@ -37,6 +37,12 @@ export default async function ArticlePage({
 
   return (
     <main className="mx-auto max-w-2xl px-6 py-16">
+      <Link
+        href="/posts"
+        className="mb-6 inline-block text-sm text-foreground/50 hover:underline"
+      >
+        <span aria-hidden="true">←</span> All Posts
+      </Link>
       <h1 className="text-3xl font-semibold">{article.title}</h1>
       <time dateTime={article.date} className="mt-2 block text-foreground/70">
         {formatDate(article.date)}
@@ -44,14 +50,8 @@ export default async function ArticlePage({
       <div className="post-body mt-8 flex flex-col gap-5 text-lg break-words">
         <Body />
       </div>
-      <Link
-        href="/posts"
-        className="mt-12 inline-block text-lg text-brand-blue hover:underline dark:text-brand-aqua"
-      >
-        All Posts
-      </Link>
 
-      <section className="mt-16 flex flex-col items-start gap-4">
+      <section className="mt-16 flex flex-col items-start gap-4 border-t border-foreground/10 pt-8">
         <h2 className="text-2xl font-semibold">Comments</h2>
         <p className="text-foreground/70">
           Have a question, a correction, or a story of your own? I&apos;d love
