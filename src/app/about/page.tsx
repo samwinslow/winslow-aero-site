@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ContactButton from "../components/ContactButton";
+import { sharedOpenGraph, sharedTwitter } from "../site-metadata";
 
 const description =
   "Commercial pilot and software engineer Sam Winslow's certificates, ratings, and the flying and software services he offers in the SF Bay Area.";
@@ -13,10 +14,12 @@ export const metadata: Metadata = {
     title: "About | winslow.aero",
     description,
     url: "/about",
+    ...sharedOpenGraph,
   },
   twitter: {
     title: "About | winslow.aero",
     description,
+    ...sharedTwitter,
   },
 };
 
