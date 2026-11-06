@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import ContactButton from "./components/ContactButton";
+import { getLatestArticles } from "./posts/articles";
+import PostCard from "./posts/PostCard";
+
+const SHOW_POST_LIST = false;
 
 export const metadata: Metadata = {
   alternates: {
@@ -9,10 +14,12 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  const latestArticles = SHOW_POST_LIST ? getLatestArticles(3) : [];
+
   return (
     <main>
       <section
-        className="relative flex h-[100vw] min-h-[320px] items-center justify-center overflow-hidden bg-scroll bg-cover bg-center text-center sm:h-[50vh] sm:bg-fixed"
+        className="relative flex h-[85vw] min-h-[320px] items-center justify-center overflow-hidden bg-scroll bg-cover bg-center text-center sm:h-[42vh] sm:bg-fixed"
         style={{ backgroundImage: "url('/IMG_0303.jpeg')" }}
       >
         <div className="absolute inset-0 bg-[hsla(214,81%,20%,0.5)]" />
@@ -23,13 +30,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto flex max-w-2xl flex-col items-center gap-8 px-6 py-16 text-center sm:flex-row sm:text-left">
+      <section className="mx-auto flex max-w-2xl flex-col items-center gap-8 px-6 py-10 text-center sm:flex-row sm:text-left">
         <div className="relative h-40 w-40 flex-shrink-0 overflow-hidden rounded-full bg-black/10">
           <Image
             src="/av_headshot.jpeg"
             alt="Sam Winslow"
             fill
-            unoptimized
+            sizes="10rem"
             className="object-cover"
           />
         </div>
@@ -46,7 +53,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="flex flex-col gap-6 bg-brand-aqua/5 px-6 py-16">
+      <section className="flex flex-col gap-6 bg-brand-aqua/5 px-6 py-10">
         <div className="mx-auto flex w-full max-w-2xl flex-col gap-6">
           <h2 className="text-center text-3xl font-semibold">Instructional Videos</h2>
           <p className="text-center text-black/70">
@@ -76,13 +83,37 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto flex max-w-2xl flex-col items-center gap-4 px-6 py-16 text-center">
-        <h2 className="text-3xl font-semibold">What would you like to see here?</h2>
-        <p className="text-black/70">
-          This site is a work in progress. If you have any suggestions or
-          advice, let me know!
-        </p>
-        <ContactButton>Contact me</ContactButton>
+      {latestArticles.length > 0 && (
+        <section className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10">
+          <div className="flex items-center justify-between gap-4 px-4">
+            <h2 className="text-3xl font-semibold">
+              <Link href="/posts">Latest Posts</Link>
+            </h2>
+            <Link
+              href="/posts"
+              className="text-brand-blue hover:underline dark:text-brand-aqua"
+            >
+              See all
+            </Link>
+          </div>
+          <ul className="grid gap-4 md:grid-cols-3">
+            {latestArticles.map((article) => (
+              <li key={article.slug}>
+                <PostCard article={article} heading="h3" layout="stacked" />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <section className="bg-brand-aqua/5 px-6 py-10">
+        <div className="mx-auto flex max-w-2xl flex-col items-center gap-4 text-center">
+          <h2 className="text-2xl font-medium">
+            Looking for a pilot, web dev, or ground instructor?<br />
+            Let&rsquo;s connect.
+          </h2>
+          <ContactButton>Contact me</ContactButton>
+        </div>
       </section>
     </main>
   );

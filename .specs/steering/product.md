@@ -15,6 +15,5 @@ winslow.aero is the personal business site of Sam Winslow, a software engineer t
 - **Keep the first pass simple.** Build the plainest version that works, and add behavior only when there is a real need.
 - **Publishing is a commit and a deploy.** There is no CMS, runtime content layer, ISR, or revalidation.
 - **Post files stay portable.** Posts are `.mdx` files written as standard Markdown with YAML frontmatter, and they use no components, imports, or JSX. Images may look broken outside the site, and that is accepted.
-- **Avoid build-time and runtime machinery for images.** Post images are plain `<img>` tags, and the author manages image size. Layout shift from post images is accepted.
 - **Pages are static.** Nothing should read content on a visitor request.
 - **Don't add lint steps or content scans for authoring rules.** A file that fails to compile may fail the build, and that is acceptable.

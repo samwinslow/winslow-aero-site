@@ -20,7 +20,6 @@ This version of Next differs from older ones. Read the relevant guide in `node_m
 - Keep route code beside its route. There is no `src/lib/`.
 - Pages are Server Components by default. Add `"use client"` only where needed, as in `Header.tsx`.
 - Style with Tailwind utility classes. Colors are CSS variables in `src/app/globals.css`, including `--brand-blue` (`#1616CC`) and `--brand-aqua` (`#109393`).
-- Site images use `next/image` with `unoptimized`. Post images are plain `<img>` tags through `src/mdx-components.tsx`.
 - Page metadata replaces the layout's `openGraph` and `twitter` objects whole. Spread `sharedOpenGraph` and `sharedTwitter` from `src/app/site-metadata.ts` on every page that sets them.
 - Do not enable Cache Components. It conflicts with `dynamicParams` on the posts route.
 - Do not add `loading.tsx` or `<Suspense>` around `/posts/[slug]`. Streaming would turn the 404 for archived posts into a 200.

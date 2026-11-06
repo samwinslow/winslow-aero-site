@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { formatDate, getAllArticles } from "./articles";
+import { getAllArticles } from "./articles";
 import { blogMetadata } from "./metadata";
+import PostCard from "./PostCard";
 
 export const metadata = blogMetadata({
   title: "Posts",
@@ -20,19 +20,10 @@ export default function Blog() {
       {articles.length === 0 ? (
         <p className="text-lg">No posts yet.</p>
       ) : (
-        <ul className="flex flex-col gap-8">
-          {articles.map(({ slug, title, date, copy }) => (
-            <li key={slug} className="flex flex-col gap-1">
-              <Link
-                href={`/posts/${slug}`}
-                className="text-xl font-semibold hover:underline"
-              >
-                {title}
-              </Link>
-              <time dateTime={date} className="text-foreground/70">
-                {formatDate(date)}
-              </time>
-              <p className="text-lg">{copy}</p>
+        <ul className="flex flex-col gap-1">
+          {articles.map((article) => (
+            <li key={article.slug}>
+              <PostCard article={article} heading="h2" />
             </li>
           ))}
         </ul>

@@ -27,7 +27,7 @@ archived: false
 | `date` | Yes | Real calendar date, `YYYY-MM-DD` |
 | `copy` | Yes | Non-empty text, used as the summary and description |
 | `tags` | No | List of text values, stored but not displayed |
-| `image` | No | Root-relative path, used for social sharing only |
+| `image` | No | Root-relative path, used for the /posts thumbnail and social sharing |
 | `archived` | No | `true` or `false`, defaults to `false` |
 
 Archived articles are not listed and return a 404.
@@ -62,7 +62,8 @@ Don't use these:
 - Never put image files in this directory.
 - Reference them as `![Alt text](/blog/photo.jpg)`. Every image needs alt text.
 - Keep filenames unique across articles.
-- You manage image size. The build doesn't resize, convert, or check images.
+- Images in `public/blog/` are served through Next's image optimizer, so they're resized and converted automatically. Files still in the frontmatter `image` field are served as committed.
+- A body image that points to a missing file fails the build.
 
 Images appear broken when an article is viewed outside the site. That's expected.
 
@@ -72,7 +73,7 @@ These compile without an error, so they're up to you:
 
 - Indented code blocks, which render as paragraphs
 - Valid expressions like `{2}`, which render their value
-- Missing image files
+- A missing file in the frontmatter `image` field
 - Tables, which render as plain text
 - Empty alt text
 - Balanced raw HTML, `export`, and resolvable `import` statements

@@ -29,7 +29,7 @@
 - **Static site:** every page is prerendered at build time.
 - **File-based posts:** each `.mdx` file directly in `src/content/` is one post, and its filename is the slug.
 - **Two paths for a post:** `src/app/posts/articles.ts` reads and validates frontmatter with `fs`, and `/posts/[slug]` imports the body through `@next/mdx`.
-- **Linear file reads:** a post reads only its own file. Only the index calls `getAllArticles()`, and `generateStaticParams` lists filenames without opening them. Do not add a module-level memo.
+- **Linear file reads:** a post reads only its own file. Only post lists, the index and the home page, read every post, and those reads stop at the end of the frontmatter. `generateStaticParams` lists filenames without opening them. Do not add a module-level memo.
 - **Archived posts:** their slugs stay in `generateStaticParams`, and the page calls `notFound()`, so they prerender as 404s.
 - **Naming:** the site says "Posts". Code and spec text may still say "article" or "blog", and the image folder is `public/blog/` on purpose.
 

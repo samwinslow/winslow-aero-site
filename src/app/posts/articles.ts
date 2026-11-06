@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync } from "node:fs";
+import { closeSync, openSync, readdirSync, readSync } from "node:fs";
 import path from "node:path";
 import { CORE_SCHEMA, load } from "js-yaml";
 
@@ -15,6 +15,29 @@ export type Article = {
 const CONTENT_DIR = path.join(process.cwd(), "src/content");
 const FILENAME = /^[a-z0-9]+(-[a-z0-9]+)*\.mdx$/;
 const FRONTMATTER = /^---\r?\n([\s\S]*?)\r?\n---[ \t]*(?:\r?\n|$)/;
+const CHUNK_BYTES = 1024;
+
+// Reads only as far as the end of the frontmatter, never the post body.
+function readFrontmatterSource(filePath: string): string {
+  const descriptor = openSync(filePath, "r");
+  try {
+    const chunks: Buffer[] = [];
+    for (;;) {
+      const chunk = Buffer.alloc(CHUNK_BYTES);
+      const bytesRead = readSync(descriptor, chunk);
+      if (bytesRead > 0) {
+        chunks.push(chunk.subarray(0, bytesRead));
+      }
+
+      const text = Buffer.concat(chunks).toString("utf-8");
+      if (bytesRead === 0 || FRONTMATTER.test(text) || !text.startsWith("---")) {
+        return text;
+      }
+    }
+  } finally {
+    closeSync(descriptor);
+  }
+}
 
 function invalid(file: string, reason: string): Error {
   return new Error(`Invalid article src/content/${file}: ${reason}`);
@@ -120,7 +143,7 @@ export function getArticle(slug: string): Article | undefined {
 
   let raw: string;
   try {
-    raw = readFileSync(path.join(CONTENT_DIR, file), "utf-8");
+    raw = readFrontmatterSource(path.join(CONTENT_DIR, file));
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code === "ENOENT") {
       return undefined;
@@ -130,7 +153,7 @@ export function getArticle(slug: string): Article | undefined {
   return parseArticle(file, raw);
 }
 
-// Reads every article file, so only the index page should call this.
+// Reads every article's frontmatter, so only post lists should call this.
 export function getAllArticles(): Article[] {
   return getArticleSlugs()
     .map((slug) => getArticle(slug))
@@ -141,6 +164,12 @@ export function getAllArticles(): Article[] {
       }
       return a.slug < b.slug ? -1 : 1;
     });
+}
+
+// Dates live in frontmatter, so finding the latest posts means reading every
+// post's frontmatter. Article bodies are never read here.
+export function getLatestArticles(limit: number): Article[] {
+  return getAllArticles().slice(0, limit);
 }
 
 export function formatDate(date: string): string {
