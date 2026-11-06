@@ -8,6 +8,7 @@ const layouts = {
     link: "sm:flex-row",
     image: "sm:aspect-auto sm:h-20 sm:w-30",
     sizes: "(min-width: 40rem) 7.5rem, calc(100vw - 5rem)",
+    copy: "text-lg",
   },
   // Image above the text at every width, for the three-column home grid.
   stacked: {
@@ -15,8 +16,24 @@ const layouts = {
     image: "",
     sizes:
       "(min-width: 72rem) 20rem, (min-width: 48rem) calc(33vw - 3.5rem), calc(100vw - 5rem)",
+    copy: "",
   },
 };
+
+// Stands in for a stacked card on the home grid until enough posts exist.
+export function PostCardSkeleton() {
+  return (
+    <div aria-hidden="true" className="flex h-full flex-col gap-4 p-4">
+      <div className="aspect-[3/2] w-full rounded-lg bg-foreground/5" />
+      <div className="flex flex-col gap-1">
+        <div className="my-0.5 h-6 w-3/4 rounded bg-foreground/5" />
+        <div className="my-0.5 h-5 w-1/3 rounded bg-foreground/5" />
+        <div className="my-0.5 h-5 w-full rounded bg-foreground/5" />
+        <div className="my-0.5 h-5 w-5/6 rounded bg-foreground/5" />
+      </div>
+    </div>
+  );
+}
 
 export default function PostCard({
   article: { slug, title, date, copy, image },
@@ -54,7 +71,7 @@ export default function PostCard({
         <time dateTime={date} className="text-foreground/70">
           {formatDate(date)}
         </time>
-        <p className="text-lg">{copy}</p>
+        <p className={classes.copy}>{copy}</p>
       </div>
     </Link>
   );
