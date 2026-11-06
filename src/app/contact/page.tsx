@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ContactLinks from "./ContactLinks";
 import TallyEmbed from "./TallyEmbed";
+import { sharedOpenGraph, sharedTwitter } from "../site-metadata";
 
 const description =
   "Get in touch with Sam Winslow for ground instruction, aircraft ferrying, software development, or startup advisement.";
@@ -12,10 +13,12 @@ export const metadata: Metadata = {
     title: "Contact | winslow.aero",
     description,
     url: "/contact",
+    ...sharedOpenGraph,
   },
   twitter: {
     title: "Contact | winslow.aero",
     description,
+    ...sharedTwitter,
   },
 };
 

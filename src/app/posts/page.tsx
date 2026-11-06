@@ -3,10 +3,10 @@ import { formatDate, getAllArticles } from "./articles";
 import { blogMetadata } from "./metadata";
 
 export const metadata = blogMetadata({
-  title: "Blog",
+  title: "Posts",
   description:
-    "Articles for pilots and people interested in flying: training, gear, skills, destinations, community, and ownership.",
-  path: "/blog",
+    "Posts for pilots and people interested in flying: training, gear, skills, destinations, community, and ownership.",
+  path: "/posts",
   type: "website",
 });
 
@@ -15,16 +15,16 @@ export default function Blog() {
 
   return (
     <main className="mx-auto flex max-w-2xl flex-col gap-8 px-6 py-16">
-      <h1 className="text-3xl font-semibold">Blog</h1>
+      <h1 className="text-3xl font-semibold">Posts</h1>
 
       {articles.length === 0 ? (
-        <p className="text-lg">No articles yet.</p>
+        <p className="text-lg">No posts yet.</p>
       ) : (
         <ul className="flex flex-col gap-8">
           {articles.map(({ slug, title, date, copy }) => (
             <li key={slug} className="flex flex-col gap-1">
               <Link
-                href={`/blog/${slug}`}
+                href={`/posts/${slug}`}
                 className="text-xl font-semibold hover:underline"
               >
                 {title}

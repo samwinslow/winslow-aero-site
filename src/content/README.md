@@ -4,7 +4,7 @@ Each `.mdx` file directly in this directory is one article. To publish, commit t
 
 ## Filename
 
-The filename is the URL slug: `first-solo.mdx` becomes `/blog/first-solo`. Use lowercase letters and numbers, with single hyphens between words. Anything else fails the build.
+The filename is the URL slug: `first-solo.mdx` becomes `/posts/first-solo`. Use lowercase letters and numbers, with single hyphens between words. Anything else fails the build.
 
 ## Frontmatter
 

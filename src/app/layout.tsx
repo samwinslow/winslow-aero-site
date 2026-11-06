@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fira_Sans } from "next/font/google";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { sharedOpenGraph, sharedTwitter } from "./site-metadata";
 import "./globals.css";
 
 const firaSans = Fira_Sans({
@@ -26,22 +27,12 @@ export const metadata: Metadata = {
     title: "winslow.aero | Flying & Software Services, SF Bay Area",
     description: siteDescription,
     url: "/",
-    siteName: "winslow.aero",
-    images: [
-      {
-        url: "/og-image-wtext.jpg",
-        width: 1200,
-        height: 630,
-      },
-    ],
-    locale: "en_US",
-    type: "website",
+    ...sharedOpenGraph,
   },
   twitter: {
-    card: "summary_large_image",
     title: "winslow.aero | Flying & Software Services, SF Bay Area",
     description: siteDescription,
-    images: ["/og-image-wtext.jpg"],
+    ...sharedTwitter,
   },
   icons: {
     icon: [

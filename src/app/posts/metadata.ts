@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-
-const DEFAULT_IMAGE = "/og-image-wtext.jpg";
+import { sharedOpenGraph, sharedTwitter } from "../site-metadata";
 
 type BlogMetadataOptions = {
   title: string;
@@ -10,13 +9,11 @@ type BlogMetadataOptions = {
   type: "website" | "article";
 };
 
-// Page metadata replaces the layout's openGraph and twitter objects whole,
-// so every field is stated here.
 export function blogMetadata({
   title,
   description,
   path,
-  image = DEFAULT_IMAGE,
+  image,
   type,
 }: BlogMetadataOptions): Metadata {
   const fullTitle = `${title} | winslow.aero`;
@@ -25,18 +22,18 @@ export function blogMetadata({
     title,
     description,
     openGraph: {
+      ...sharedOpenGraph,
       title: fullTitle,
       description,
       url: path,
-      siteName: "winslow.aero",
       type,
-      images: [image],
+      ...(image ? { images: [image] } : {}),
     },
     twitter: {
-      card: "summary_large_image",
+      ...sharedTwitter,
       title: fullTitle,
       description,
-      images: [image],
+      ...(image ? { images: [image] } : {}),
     },
   };
 }

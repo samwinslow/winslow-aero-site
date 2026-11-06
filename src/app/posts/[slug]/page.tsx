@@ -10,7 +10,7 @@ export function generateStaticParams() {
   return getArticleSlugs().map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: PageProps<"/blog/[slug]">) {
+export async function generateMetadata({ params }: PageProps<"/posts/[slug]">) {
   const { slug } = await params;
   const article = getArticle(slug);
   if (!article || article.archived) notFound();
@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: PageProps<"/blog/[slug]">) {
   return blogMetadata({
     title: article.title,
     description: article.copy,
-    path: `/blog/${slug}`,
+    path: `/posts/${slug}`,
     image: article.image,
     type: "article",
   });
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps<"/blog/[slug]">) {
 
 export default async function ArticlePage({
   params,
-}: PageProps<"/blog/[slug]">) {
+}: PageProps<"/posts/[slug]">) {
   const { slug } = await params;
   const article = getArticle(slug);
   if (!article || article.archived) notFound();
