@@ -62,7 +62,8 @@ Don't use these:
 - Never put image files in this directory.
 - Reference them as `![Alt text](/blog/photo.jpg)`. Every image needs alt text.
 - Keep filenames unique across articles.
-- You manage image size. The build doesn't resize, convert, or check images.
+- Images in `public/blog/` are served through Next's image optimizer, so they're resized and converted automatically. Files still in the frontmatter `image` field are served as committed.
+- A body image that points to a missing file fails the build.
 
 Images appear broken when an article is viewed outside the site. That's expected.
 
@@ -72,7 +73,7 @@ These compile without an error, so they're up to you:
 
 - Indented code blocks, which render as paragraphs
 - Valid expressions like `{2}`, which render their value
-- Missing image files
+- A missing file in the frontmatter `image` field
 - Tables, which render as plain text
 - Empty alt text
 - Balanced raw HTML, `export`, and resolvable `import` statements

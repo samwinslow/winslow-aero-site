@@ -51,7 +51,7 @@ export default function About() {
             src="/IMG_2255.jpeg"
             alt="Sam Winslow"
             fill
-            unoptimized
+            sizes="(min-width: 42rem) 39rem, calc(100vw - 3rem)"
             className="object-cover"
           />
         </div>
@@ -61,7 +61,7 @@ export default function About() {
               src="/IMG_5726.jpeg"
               alt="Sam Winslow"
               fill
-              unoptimized
+              sizes="(min-width: 42rem) 19.25rem, calc(50vw - 1.75rem)"
               className="object-cover"
             />
           </div>
@@ -70,7 +70,7 @@ export default function About() {
               src="/IMG_5736.jpeg"
               alt="Sam Winslow"
               fill
-              unoptimized
+              sizes="(min-width: 42rem) 19.25rem, calc(50vw - 1.75rem)"
               className="object-cover"
             />
           </div>

@@ -29,7 +29,7 @@ export default function Home() {
             src="/av_headshot.jpeg"
             alt="Sam Winslow"
             fill
-            unoptimized
+            sizes="10rem"
             className="object-cover"
           />
         </div>

@@ -1,4 +1,5 @@
 import type { MDXComponents } from "mdx/types";
+import PostImage from "./app/posts/PostImage";
 
 const heading = "font-semibold";
 
@@ -30,16 +31,7 @@ const components: MDXComponents = {
     />
   ),
   hr: (props) => <hr {...props} className="border-foreground/20" />,
-  img: ({ alt, ...props }) => (
-    // Plain img by design. Article images have no dimensions; see design.md.
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      {...props}
-      alt={alt ?? ""}
-      loading="lazy"
-      className="max-w-full h-auto rounded-lg"
-    />
-  ),
+  img: PostImage,
 };
 
 export function useMDXComponents(): MDXComponents {
