@@ -1,7 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
-import { formatDate, getAllArticles } from "./articles";
+import { getAllArticles } from "./articles";
 import { blogMetadata } from "./metadata";
+import PostCard from "./PostCard";
 
 export const metadata = blogMetadata({
   title: "Posts",
@@ -22,33 +21,9 @@ export default function Blog() {
         <p className="text-lg">No posts yet.</p>
       ) : (
         <ul className="flex flex-col gap-1">
-          {articles.map(({ slug, title, date, copy, image }) => (
-            <li key={slug}>
-              <Link
-                href={`/posts/${slug}`}
-                className="group flex flex-col gap-4 rounded-lg border border-transparent p-4 transition-colors hover:border-foreground/10 hover:bg-foreground/5 sm:flex-row"
-              >
-                <div className="relative aspect-[3/2] w-full flex-shrink-0 overflow-hidden rounded-lg bg-foreground/10 sm:aspect-auto sm:h-20 sm:w-30">
-                  {image && (
-                    <Image
-                      src={image}
-                      alt=""
-                      fill
-                      sizes="(min-width: 40rem) 7.5rem, calc(100vw - 5rem)"
-                      className="object-cover"
-                    />
-                  )}
-                </div>
-                <div className="flex min-w-0 flex-col gap-1">
-                  <h2 className="text-xl font-semibold group-hover:underline">
-                    {title}
-                  </h2>
-                  <time dateTime={date} className="text-foreground/70">
-                    {formatDate(date)}
-                  </time>
-                  <p className="text-lg">{copy}</p>
-                </div>
-              </Link>
+          {articles.map((article) => (
+            <li key={article.slug}>
+              <PostCard article={article} heading="h2" />
             </li>
           ))}
         </ul>
