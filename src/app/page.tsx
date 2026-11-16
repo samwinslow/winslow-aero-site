@@ -48,7 +48,7 @@ export default function Home() {
         </div>
         <div className="flex flex-col gap-4">
           <p className="text-black/70">
-            I am a software engineer turned pilot based in the San Francisco Bay Area. Not content to be a passenger in my own life, I&rsquo;ve built and scaled several early-stage startup companies, and began pursuing flight training in 2022.
+            I am a software engineer turned pilot based in the San Francisco Bay Area. I&rsquo;ve built and scaled several early-stage startup companies, and began pursuing flight training in 2022.
           </p>
           <p className="text-black/70">
             I hold Commercial Pilot (single and multiengine land), and Ground Instructor certificates. Aviation was a first love for me, and I hope to inform and inspire you too!
