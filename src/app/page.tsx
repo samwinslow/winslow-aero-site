@@ -4,6 +4,7 @@ import Link from "next/link";
 import ContactButton from "./components/ContactButton";
 import { getLatestArticles } from "./posts/articles";
 import PostCard, { PostCardSkeleton } from "./posts/PostCard";
+import { feedAlternateTypes } from "./site-metadata";
 
 const SHOW_POST_LIST = true;
 const LATEST_POST_COUNT = 3;
@@ -11,6 +12,7 @@ const LATEST_POST_COUNT = 3;
 export const metadata: Metadata = {
   alternates: {
     canonical: "/",
+    types: feedAlternateTypes,
   },
 };
 

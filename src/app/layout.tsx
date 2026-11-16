@@ -2,7 +2,12 @@ import type { Metadata } from "next";
 import { Fira_Sans } from "next/font/google";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { sharedOpenGraph, sharedTwitter, siteUrl } from "./site-metadata";
+import {
+  feedAlternateTypes,
+  sharedOpenGraph,
+  sharedTwitter,
+  siteUrl,
+} from "./site-metadata";
 import "./globals.css";
 
 const firaSans = Fira_Sans({
@@ -21,6 +26,9 @@ export const metadata: Metadata = {
     template: "%s | winslow.aero",
   },
   description: siteDescription,
+  alternates: {
+    types: feedAlternateTypes,
+  },
   openGraph: {
     title: "winslow.aero | Flying & Software Services, SF Bay Area",
     description: siteDescription,
