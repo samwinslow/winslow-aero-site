@@ -13,7 +13,9 @@
 │   ├── app/
 │   │   ├── layout.tsx       Root layout and site-wide metadata
 │   │   ├── page.tsx         Home page
-│   │   ├── site-metadata.ts Shared share image and card settings
+│   │   ├── site-metadata.ts Site URL, shared share image and card settings
+│   │   ├── sitemap.ts       /sitemap.xml: static pages and non-archived posts
+│   │   ├── robots.ts        /robots.txt, pointing to the sitemap
 │   │   ├── about/           /about
 │   │   ├── contact/         /contact, with its Tally embed and links
 │   │   ├── posts/           /posts index, /posts/[slug], and post helpers

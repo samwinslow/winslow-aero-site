@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Fira_Sans } from "next/font/google";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { sharedOpenGraph, sharedTwitter } from "./site-metadata";
+import { sharedOpenGraph, sharedTwitter, siteUrl } from "./site-metadata";
 import "./globals.css";
 
 const firaSans = Fira_Sans({
@@ -13,8 +13,6 @@ const firaSans = Fira_Sans({
 
 const siteDescription =
   "Sam Winslow is a software engineer turned commercial pilot offering ground instruction, aircraft ferrying, and software development services in the San Francisco Bay Area.";
-
-const siteUrl = process.env.DEPLOY_PRIME_URL ?? "https://winslow.aero";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

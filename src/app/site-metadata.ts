@@ -1,3 +1,5 @@
+export const siteUrl = process.env.DEPLOY_PRIME_URL ?? "https://winslow.aero";
+
 // Page metadata replaces the layout's openGraph and twitter objects whole, so
 // each page spreads these to keep the share image and card settings.
 const shareImage = {
